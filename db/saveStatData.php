@@ -6,6 +6,9 @@
 
 require_once(dirname(dirname(__FILE__)) . '/pid-wp-db-config.php');
 
+// if JS send data by Fetch POST, run a decoding line
+$_POST = json_decode(file_get_contents('php://input'), true);
+
 if (isset($_POST['statData'])) {
   $statData = $_POST['statData'];
   $areaCode = $_POST['areaCode'];
@@ -15,7 +18,7 @@ if (isset($_POST['statData'])) {
     array_shift($statData);
   } else {
     if (!isset($statData[0]['AxisLabels'])) {
-      echo "No Stats In the Array Data, Data Return is only 2 Collection!";
+      echo json_encode("No Stats In the Array Data, Data Return is only 2 Collection!");
       exit();
     }
   }
@@ -31,7 +34,7 @@ if (isset($_POST['statData'])) {
     exit();
   }
   $AxisLabels = $statData[0]['AxisLabels'];
-  $deleteOldData = $_POST['deleteOldData'];
+  $deleteOldData = $_POST['deleteOldData'] == 'false' ? false : true;
 } else {
   $statData = 'F20';
   $areaCode = 'F20';
@@ -208,11 +211,17 @@ try {
     }
   }
   $pdo->commit();
-  echo 'Stats Inserted to DB!';
+  echo json_encode('Stats Inserted to DB!');
 } catch (Exception $e) {
-  $pdo->rollback();
-  echo '["PDO error"]';
-  throw $e;
+  if ($e->errorInfo[1] == 1062) {
+    // duplicate entry, do something else
+
+  } else {
+    // an error other than duplicate entry occurred
+    $pdo->rollback();
+    echo '["PDO error"]';
+    throw $e;
+  }
 }
 $stmt_insert_stats = null;
 $pdo = null;

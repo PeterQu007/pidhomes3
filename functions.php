@@ -861,7 +861,6 @@ function pid_chart_image_ajax_handler()
 		'post_title' => $post_title, // {City} Home Price Chart {'Curent Year}
 		'post_content' => $post_content, // {Townhouse: ... LIke a summary}
 		'post_author' => 1,
-		'post_category' => array(2),
 		'post_status' => 'publish',
 		'meta_input' => array(
 			'twitter_card' => $meta_twitter_card_value,
@@ -871,10 +870,13 @@ function pid_chart_image_ajax_handler()
 		)
 	);
 	$post_id = wp_insert_post($new);
+
 	wp_update_post(array(
 		'ID' => $post_id,
 		'post_name' => "SS$post_id"
 	));
+	wp_set_object_terms($post_id, 'Advertisement', 'category');
+
 	$post_url = get_post_permalink($post_id); // get_site_url() . "/?p=$post_id";
 	echo $post_id . ",";
 	// Add post meta data

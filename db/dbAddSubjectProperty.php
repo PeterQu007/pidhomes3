@@ -60,6 +60,11 @@ if (isset($_POST["bcAssessTotal"])) {
 
 if (isset($_POST["subjectHouseType"])) {
   $subjectHouseType = $_POST["subjectHouseType"];
+  if (strpos("Detached", $subjectHouseType)) {
+    $subjectHouseType = 'Detached';
+  } else {
+    $subjectHouseType = 'Attached';
+  }
 } else {
   $subjectHouseType = "Detached";
 }
@@ -67,8 +72,17 @@ if (isset($_POST["subjectHouseType"])) {
 if (isset($_POST["subjectDwellingType"])) {
   $subjectDwellingType = $_POST["subjectDwellingType"];
   $subjectDwellingType = str_replace('Apartment/', '', $subjectDwellingType);
-  if ($subjectDwellingType != "Detached") {
-    $landSize = null;
+  switch ($subjectDwellingType) {
+    case 'House/Single Family':
+    case "Rowhouse":
+    case "Row House (Non-Strata)":
+    case "1/2 Duplex":
+      break;
+    case "Condo":
+    case "Apartment":
+    case "Townhouse":
+      $landSize = null;
+      break;
   }
 } else {
   $subjectDwellingType = "Detached";
@@ -220,7 +234,7 @@ function update_array(&$data, $table, $mysqli, $where)
   } catch (mysqli_sql_exception $e) {
     echo "Error Code <br>" . $e->getCode();
     echo "Error Message <br>" . $e->getMessage();
-    echo "Strack Trace <br>" . nl2br($e->getTraceAsString());
+    echo "Stack Trace <br>" . nl2br($e->getTraceAsString());
   }
 }
 

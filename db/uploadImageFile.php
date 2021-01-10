@@ -44,9 +44,17 @@ if ($uploadOk == 0) {
     $new = array(
       'post_title' => 'Our new post',
       'post_content' => 'This is the content of our new post.',
-      'post_status' => 'publish'
+      'post_status' => 'publish',
     );
     $post_id = wp_insert_post($new);
+    if (is_wp_error($post_id)) {
+      $errors = $post_id->get_error_messages();
+      foreach ($errors as $error) {
+        echo "- " . $error . "<br />";
+      }
+    } else {
+      wp_set_object_terms($post_id, 'Advertisement', 'category');
+    }
 
     if ($post_id) {
       echo $post_id . ",";

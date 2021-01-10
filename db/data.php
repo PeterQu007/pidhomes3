@@ -1,6 +1,9 @@
 <?php
 require_once(dirname(dirname(__FILE__)) . '/pid-wp-db-config.php');
 
+// if JS send data by Fetch POST, run a decoding line
+$_POST = json_decode(file_get_contents('php://input'), true);
+
 if (isset($_POST["neighborhood"])) {
   $neighborhood = $_POST["neighborhood"];
   echo $_POST;
@@ -69,7 +72,7 @@ if ($res) {
     echo $row['stat_code'];
   }
 } else {
-  echo 'error in mySQL query';
+  echo -1; //'error in mySQL query';
 }
 
 

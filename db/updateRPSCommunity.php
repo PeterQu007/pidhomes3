@@ -1,7 +1,7 @@
 <?php
 // my ajax call uri:
 // http://localhost/pidrealty4/wp-content/themes/realhomes-child-3/db/updateRPSCommunity.php
-
+$test = "";
 if (isset($_POST["listingInfo"])) {
   $listings = json_decode($_POST["listingInfo"]);
   // echo 'try to update listing community and neighborhood';
@@ -99,6 +99,7 @@ if ($conn->connect_error) {
 //
 
 $strSql = '';
+$strSql2 = '';
 $i = 1;
 foreach ($listings as $listing) {
   try {
@@ -110,7 +111,24 @@ foreach ($listings as $listing) {
   }
   $i++;
   if ($community_name && $neighborhood && $listingID) {
-    $strSql .= "UPDATE wp_rps_property SET CommunityName = '$community_name', Neighbourhood = '$neighborhood' WHERE DdfListingID='$listingID';";
+    switch ($_SERVER['SERVER_NAME']) {
+      case 'localhost':
+        $strSql .= "UPDATE wp_rps_property SET CommunityName = '$community_name', Neighbourhood = '$neighborhood' WHERE DdfListingID='$listingID';";
+        // update pidhomes.ca
+        // $strSql .= "UPDATE wp_rps_property SET CommunityName = '$community_name', Neighbourhood = '$neighborhood' WHERE DdfListingID='$listingID';";
+        // update cn.pidhomes.ca
+        // $strSql .= "UPDATE pqu007_wrdp13.wp_rps_property SET CommunityName = '$community_name', Neighbourhood = '$neighborhood' WHERE DdfListingID='$listingID';";
+
+        break;
+
+      case 'pidhomes.ca':
+      case 'cn.pidhomes.ca':
+        // update pidhomes.ca
+        $strSql .= "UPDATE wp_rps_property SET CommunityName = '$community_name', Neighbourhood = '$neighborhood' WHERE DdfListingID='$listingID';";
+        // update cn.pidhomes.ca
+        $strSql2 .= "UPDATE pqu007_wrdp13.wp_rps_property SET CommunityName = '$community_name', Neighbourhood = '$neighborhood' WHERE DdfListingID='$listingID';";
+        break;
+    }
   }
 }
 
@@ -122,12 +140,36 @@ if ($res) {
   while ($row = $res->fetch_assoc()) {
   }
 }
-
-
 // Clear DB Connection
 $thread = $conn->thread_id;
 $conn->kill($thread);
 $conn->close();
-echo 'update done';
+
+// update cn.pidhomes.ca
+$outputs2 = [];
+if ($strSql2 != '') {
+  $conn2 = new mysqli(PID_DB_HOST, PID_DB_USER_CN, PID_DB_PASSWORD_CN, PID_DB_NAME_CN);
+  // Check connection
+  if ($conn2->connect_error) {
+    die("Connection failed: " . $conn2->connect_error);
+  }
+  //
+  $res2 = mysqli_multi_query($conn2, $strSql2);
+  $outputs2 = loop_multi($res2);
+
+  $res2 = $outputs2['result'][0];
+  if ($res2) {
+    while ($row = $res2->fetch_assoc()) {
+    }
+  }
+}
+// Clear DB Connection
+$thread = $conn2->thread_id;
+$conn2->kill($thread);
+$conn2->close();
+
+// send response to ajax call
+$res = json_encode(array_merge($outputs, $outputs2));
+echo "sync RPS community names done: {$res}";
 
 // unset($conn); //sometimes, mysqli gives lots of warnings
