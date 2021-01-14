@@ -34,7 +34,12 @@ if (isset($_POST['statData'])) {
     exit();
   }
   $AxisLabels = $statData[0]['AxisLabels'];
-  $deleteOldData = $_POST['deleteOldData'] == 'false' ? false : true;
+  // sometimes $_POST send string not boolean
+  if (is_string($_POST['deleteOldData'])) {
+    $deleteOldData = $_POST['deleteOldData'] == 'false' ? false : true;
+  } elseif (is_bool($_POST['deleteOldData'])) {
+    $deleteOldData = $_POST['deleteOldData'];
+  }
 } else {
   $statData = 'F20';
   $areaCode = 'F20';
@@ -172,7 +177,7 @@ $mysqli->kill($thread);
 $mysqli->close();
 
 if (count($monthYears) == 0) {
-  echo "No Stats Data To Insert INTO mySQL";
+  echo json_encode("No Stats Data To Insert INTO mySQL");
   exit();
 }
 
@@ -219,7 +224,7 @@ try {
   } else {
     // an error other than duplicate entry occurred
     $pdo->rollback();
-    echo '["PDO error"]';
+    echo json_encode('["PDO error"]');
     throw $e;
   }
 }

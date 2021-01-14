@@ -63,16 +63,16 @@ $mysqli = new mysqli(PID_DB_HOST, PID_DB_USER, PID_DB_PASSWORD, PID_DB_NAME);
 //   }
 // }
 
-$strSql = "SELECT stat_code FROM wp_pid_stats_code WHERE area_code='$areaCode'";
+$strSql = "SELECT stat_code, `All`, Detached, Townhouse, Apartment FROM wp_pid_stats_code WHERE area_code='$areaCode'";
 $mysqli->real_query($strSql);
 $res = $mysqli->use_result();
 
 if ($res) {
   while ($row = $res->fetch_assoc()) {
-    echo $row['stat_code'];
+    echo json_encode($row); // send back stat_code, All, Detached, Townhouse, Apartment
   }
 } else {
-  echo -1; //'error in mySQL query';
+  echo json_encode("error in MySQL Query: $strSql"); //'error in mySQL query';
 }
 
 
