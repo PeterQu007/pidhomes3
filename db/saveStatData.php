@@ -12,7 +12,7 @@ $_POST = json_decode(file_get_contents('php://input'), true);
 if (isset($_POST['statData'])) {
   $statData = $_POST['statData'];
   $areaCode = $_POST['areaCode'];
-  $propertyGroup = $_POST['propertyGroup'];
+  $propertyType = $_POST['propertyType'];
   if (count($statData) == 4) {
     array_shift($statData);
     array_shift($statData);
@@ -43,7 +43,7 @@ if (isset($_POST['statData'])) {
 } else {
   $statData = 'F20';
   $areaCode = 'F20';
-  $propertyGroup = 'All';
+  $propertyType = 'All';
   $deleteOldData = true;
   $AxisLabels = [
     "1-2017",
@@ -147,7 +147,7 @@ foreach ($AxisLabels as $axisLabel) {
 $mysqli = new mysqli(PID_DB_HOST, PID_DB_USER, PID_DB_PASSWORD, PID_DB_NAME);
 
 if (!$deleteOldData) {
-  $strSql = "SELECT MAX(Date) AS max_date FROM wp_pid_market WHERE Neighborhood_ID='$areaCode' AND Property_Type = '$propertyGroup'";
+  $strSql = "SELECT MAX(Date) AS max_date FROM wp_pid_market WHERE Neighborhood_ID='$areaCode' AND Property_Type = '$propertyType'";
   $mysqli->real_query($strSql);
   $res = $mysqli->use_result();
 
@@ -168,7 +168,7 @@ if (!$deleteOldData) {
 } else {
   // Have to delete old data first
   $deleteStartDate = $monthYears[0];
-  $strSql = "DELETE FROM wp_pid_market WHERE Neighborhood_ID='$areaCode' AND Property_Type = '$propertyGroup' AND `Date` >= '$deleteStartDate'";
+  $strSql = "DELETE FROM wp_pid_market WHERE Neighborhood_ID='$areaCode' AND Property_Type = '$propertyType' AND `Date` >= '$deleteStartDate'";
   $mysqli->real_query($strSql);
   $msg = "Records Delete: $mysqli->affected_rows;";
 }
@@ -207,7 +207,7 @@ try {
           $monthYear,
           $Year,
           $areaCode,
-          $propertyGroup,
+          $propertyType,
           $HPI,
           100, // 1 for test
           100
