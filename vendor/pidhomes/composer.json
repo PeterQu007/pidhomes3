@@ -1,0 +1,19 @@
+{
+    "name": "pidhomes/pidhomes",
+    "type": "library",
+    "description": "PIDHomes Classes, Functions & Constants Library Modules",
+    "license": "MIT",
+    "authors": [{
+        "name": "Peter Qu",
+        "email": "pqu007@gmail.com"
+    }],
+    "require": {
+        "php": ">=5.3.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "PIDHomes\\": ""
+        },
+        "files": ["PIDConstants.php"]
+    }
+}

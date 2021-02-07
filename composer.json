@@ -4,12 +4,8 @@
         "timber/timber": "^1.18"
     },
     "_comment": [
+        "/0/ cd directory to C:\\wamp64\\www\\PIDRealty4\\wp-content\themes\realhomes-child-3",
         "/1/ use command composer dump-autoload to regenerate autoload.php file",
         "/2/ change file name to pid-autoload.php"
-    ],
-    "autoload": {
-        "psr-4": {
-            "PIDHomes\\": "src-php/"
-        }
-    }
+    ]
 }

@@ -13,6 +13,9 @@ global $context, $_metabox, $env;
 use PIDHomes\Metabox as Metabox;
 use Timber\Timber;
 
+use const PIDHomes\PID_CHART_YEARS;
+use const PIDHomes\PID_CHART_YEARS_RANGE;
+
 $display_social_share         = get_option('theme_display_social_share', 'true');
 $inspiry_share_property_label = get_option('inspiry_share_property_label');
 $inspiry_print_property_label = get_option('inspiry_print_property_label');
@@ -27,7 +30,7 @@ $communityID = get_the_ID();
 // $years = get_query_var('y');
 $years = $env->query_vars['years'];
 if ($years[0] == '') {
-  $years = [2019, 2020];
+  $years = explode(',', PID_CHART_YEARS);
 }
 // $months = get_query_var('mh');
 $months = $env->query_vars['month'];
@@ -140,7 +143,7 @@ $market_context["pid_property_grouped_by_nbh_checked"] = $property_type == 'grou
 $market_context['pid_market_form_time'] = "pidMarketForm_Time_$chartCanvasID";
 $market_context['pid_market_form_time_year'] = $lang_set['select_year'];
 
-$year_selects = [2017, 2018, 2019, 2020];
+$year_selects = PID_CHART_YEARS_RANGE; //[2017, 2018, 2019, 2020, 2021];
 $_context = [];
 foreach ($year_selects as $yr) {
   $_context["year_checkbox_id"] = "pid_{$yr}_{$chartCanvasID}";

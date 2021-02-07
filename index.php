@@ -22,7 +22,7 @@ if (isset($_GET['post_type'])) {
     $post_type = $matches[1];
   };
 } else {
-  if (preg_match($post_type_regex2, $_GET[0], $matches)) {
+  if (count($_GET) > 0 && preg_match($post_type_regex2, $_GET[0], $matches)) {
     $post_type = $matches[1];
   };
 }

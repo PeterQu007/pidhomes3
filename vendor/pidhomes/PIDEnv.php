@@ -393,7 +393,7 @@ class PIDEnv
         $years = $match_years[1];
         $years = explode(",", $years);
       } else {
-        $years = ['2020'];
+        $years = explode(",", PID_CHART_YEARS);
       }
       if (preg_match($month_regex, $query_vars, $match_month)) {
         $month = $match_month[1];
@@ -404,7 +404,7 @@ class PIDEnv
       // normal query vars
       $property_type = get_query_var('dwell', 'groupbynbh');
       $chart_type = get_query_var('chart', 'perc');
-      $years = get_query_var('y', '2020');
+      $years = get_query_var('y', PID_CHART_YEARS);
       $years = explode(",", $years);
       $month = get_query_var('mh', '1');
     }

@@ -1,5 +1,4 @@
-[
-    {
+[{
         "name": "altorouter/altorouter",
         "version": "v1.2.0",
         "version_normalized": "1.2.0.0",
@@ -33,8 +32,7 @@
         "license": [
             "MIT"
         ],
-        "authors": [
-            {
+        "authors": [{
                 "name": "Danny van Kooten",
                 "email": "dannyvankooten@gmail.com",
                 "homepage": "http://dannyvankooten.com/"
@@ -99,12 +97,10 @@
         "license": [
             "MIT"
         ],
-        "authors": [
-            {
-                "name": "Alexander",
-                "email": "iam.asm89@gmail.com"
-            }
-        ],
+        "authors": [{
+            "name": "Alexander",
+            "email": "iam.asm89@gmail.com"
+        }],
         "description": "Cache fragments of templates directly within Twig.",
         "homepage": "https://github.com/asm89/twig-cache-extension",
         "keywords": [
@@ -160,13 +156,11 @@
         "license": [
             "MIT"
         ],
-        "authors": [
-            {
-                "name": "Kyle Robinson Young",
-                "email": "kyle@dontkry.com",
-                "homepage": "https://github.com/shama"
-            }
-        ],
+        "authors": [{
+            "name": "Kyle Robinson Young",
+            "email": "kyle@dontkry.com",
+            "homepage": "https://github.com/shama"
+        }],
         "description": "A multi-framework Composer library installer",
         "homepage": "https://composer.github.io/installers/",
         "keywords": [
@@ -241,8 +235,7 @@
             "zend",
             "zikula"
         ],
-        "funding": [
-            {
+        "funding": [{
                 "url": "https://packagist.com",
                 "type": "custom"
             },
@@ -286,13 +279,31 @@
         "license": [
             "MIT"
         ],
-        "authors": [
-            {
-                "name": "Reza Salarmehr",
-                "email": "salarmehr@gmail.com"
-            }
-        ],
+        "authors": [{
+            "name": "Reza Salarmehr",
+            "email": "salarmehr@gmail.com"
+        }],
         "description": "Super efficient application localisation"
+    },
+    {
+        "name": "pidhomes",
+        "version": "1.0.0",
+        "type": "library",
+        "description": "PIDHomes Constants Library Modules",
+        "license": "MIT",
+        "authors": [{
+            "name": "Peter Qu",
+            "email": "pqu007@gmail.com"
+        }],
+        "require": {
+            "php": ">=5.3.3"
+        },
+        "autoload": {
+            "psr-4": {
+                "PIDHomes\\": ""
+            },
+            "files": ["PIDConstants.php"]
+        }
     },
     {
         "name": "symfony/polyfill-ctype",
@@ -339,8 +350,7 @@
         "license": [
             "MIT"
         ],
-        "authors": [
-            {
+        "authors": [{
                 "name": "Gert de Pagter",
                 "email": "BackEndTea@gmail.com"
             },
@@ -357,8 +367,7 @@
             "polyfill",
             "portable"
         ],
-        "funding": [
-            {
+        "funding": [{
                 "url": "https://symfony.com/sponsor",
                 "type": "custom"
             },
@@ -417,8 +426,7 @@
         "license": [
             "MIT"
         ],
-        "authors": [
-            {
+        "authors": [{
                 "name": "Nicolas Grekas",
                 "email": "p@tchwork.com"
             },
@@ -436,8 +444,7 @@
             "portable",
             "shim"
         ],
-        "funding": [
-            {
+        "funding": [{
                 "url": "https://symfony.com/sponsor",
                 "type": "custom"
             },
@@ -497,8 +504,7 @@
         "license": [
             "MIT"
         ],
-        "authors": [
-            {
+        "authors": [{
                 "name": "Jared Novack",
                 "email": "jared@upstatement.com",
                 "homepage": "http://upstatement.com"
@@ -562,8 +568,7 @@
         "license": [
             "BSD-3-Clause"
         ],
-        "authors": [
-            {
+        "authors": [{
                 "name": "Fabien Potencier",
                 "email": "fabien@symfony.com",
                 "homepage": "http://fabien.potencier.org",
@@ -584,8 +589,7 @@
         "keywords": [
             "templating"
         ],
-        "funding": [
-            {
+        "funding": [{
                 "url": "https://github.com/fabpot",
                 "type": "github"
             },
@@ -632,13 +636,11 @@
         "license": [
             "MIT"
         ],
-        "authors": [
-            {
-                "name": "Jared Novack",
-                "email": "jared@upstatement.com",
-                "homepage": "http://upstatement.com"
-            }
-        ],
+        "authors": [{
+            "name": "Jared Novack",
+            "email": "jared@upstatement.com",
+            "homepage": "http://upstatement.com"
+        }],
         "description": "Manage rewrites and routes in WordPress with this dead-simple plugin",
         "homepage": "http://routes.upstatement.com",
         "keywords": [

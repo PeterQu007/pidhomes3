@@ -11,7 +11,7 @@ return array(
     'Symfony\\Polyfill\\Mbstring\\' => array($vendorDir . '/symfony/polyfill-mbstring'),
     'Symfony\\Polyfill\\Ctype\\' => array($vendorDir . '/symfony/polyfill-ctype'),
     'Salarmehr\\Cosmopolitan\\' => array($vendorDir . '/salarmehr/cosmopolitan/src'),
-    'PIDHomes\\' => array($baseDir . '/src-php'),
+    'PIDHomes\\' => array($vendorDir . '/pidhomes'),
     'Composer\\Installers\\' => array($vendorDir . '/composer/installers/src/Composer/Installers'),
     '' => array($vendorDir . '/asm89/twig-cache-extension/lib'),
 );
