@@ -538,6 +538,14 @@ h4.rh_feature__title {
   background-color: lightgrey;
 }
 
+.pid_link {
+  color: darkblue;
+}
+
+.pid_link:hover{
+  color: darkorange;
+}
+
 .pid_table_header{
   white-space: normal!important;
   word-wrap: normal;
