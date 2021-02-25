@@ -2,7 +2,7 @@
 if (isset($_POST["cmaData"])) {
   $cmaData = $_POST["cmaData"];
   array_shift($cmaData);
-  $cmaID = $cmaData[0][28];
+  $cmaID = $cmaData[0][36]; // old value is 28
   echo 'remote test';
 } else {
   // $cmaData = array([
@@ -200,7 +200,7 @@ try {
           '',
           $cma[$iStart++]
         ),
-        $cma[$iStart++]
+        $cma[36] // old $cma[$iStart++], update to 36
       )
     );
   }

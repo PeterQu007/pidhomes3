@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: RealHomesChildTheme 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-13 01:57+0000\n"
-"PO-Revision-Date: 2020-10-13 01:58+0000\n"
+"POT-Creation-Date: 2020-10-17 18:43+0000\n"
+"PO-Revision-Date: 2020-10-17 18:45+0000\n"
 "Last-Translator: Peter Qu\n"
 "Language-Team: 简体中文\n"
 "Language: zh_CN\n"
@@ -14,7 +14,7 @@ msgstr ""
 "X-Generator: Loco https://localise.biz/\n"
 "X-Loco-Version: 2.4.3; wp-5.5.1"
 
-#: archive-community.php:62 single-cma.php:436 single-community.php:78
+#: archive-community.php:62 single-cma.php:481 single-community.php:78
 #, php-format
 msgid "%s Market Chart"
 msgstr "%s房地产市场价格走势图"
@@ -39,122 +39,150 @@ msgstr "%s最新挂牌"
 msgid "More Related Communities Of %s"
 msgstr "更多相关的%s居民社区"
 
-#: single-cma.php:205
+#: single-cma.php:212
 msgid "Subject Property: "
 msgstr "评估标的物业:"
 
-#: single-cma.php:211
+#: single-cma.php:218
+msgid "CMA NO"
+msgstr "CMA编号"
+
+#: single-cma.php:218
+msgid "VRP NO"
+msgstr "VRP编号"
+
+#: single-cma.php:224
+msgid "BCA Change% Range"
+msgstr "相对BCA涨跌幅度"
+
+#: single-cma.php:225
+msgid "List Price Range"
+msgstr "挂牌价格范围"
+
+#: single-cma.php:228
+msgid "BCA Change%"
+msgstr "BCA涨跌幅"
+
+#: single-cma.php:229
+msgid "List Price"
+msgstr "挂牌价"
+
+#: single-cma.php:230
+msgid "Sold Price"
+msgstr "成交价"
+
+#: single-cma.php:244
 msgid "BCA"
 msgstr "政府估价"
 
-#: single-cma.php:212
+#: single-cma.php:245
 msgid "Size"
 msgstr "面积"
 
-#: single-cma.php:213
+#: single-cma.php:246
 msgid "Value"
 msgstr "价值"
 
-#: single-cma.php:215
+#: single-cma.php:248
 msgid "Improve"
 msgstr "物业"
 
-#: single-cma.php:219
+#: single-cma.php:252
 msgid "Land"
 msgstr "宅地"
 
-#: single-cma.php:223
+#: single-cma.php:256
 msgid "Total"
 msgstr "总价"
 
-#: single-cma.php:228
+#: single-cma.php:261
 msgid "CMA Comparables Criteria"
 msgstr "房源筛选条件"
 
-#: single-cma.php:230
+#: single-cma.php:263
 msgid "Criteria No"
 msgstr "序号"
 
-#: single-cma.php:231
+#: single-cma.php:264
 msgid "Criteria Name"
 msgstr "筛选项目名"
 
-#: single-cma.php:232
+#: single-cma.php:265
 msgid "Criteria Value"
 msgstr "筛选项目值"
 
-#: single-cma.php:235
+#: single-cma.php:268
 msgid "Active Listings Price Analysis"
 msgstr "在售房源挂牌价格分析"
 
-#: single-cma.php:238 single-cma.php:249 single-cma.php:292 single-cma.php:303
+#: single-cma.php:271 single-cma.php:288 single-cma.php:331 single-cma.php:348
 msgid "Metric Name"
 msgstr "指标"
 
-#: single-cma.php:239 single-cma.php:250 single-cma.php:269 single-cma.php:293
-#: single-cma.php:304 single-cma.php:323
+#: single-cma.php:272 single-cma.php:289 single-cma.php:308 single-cma.php:332
+#: single-cma.php:349 single-cma.php:368
 msgid "Low End"
 msgstr "低端价格"
 
-#: single-cma.php:240 single-cma.php:251 single-cma.php:270 single-cma.php:294
-#: single-cma.php:305 single-cma.php:324
+#: single-cma.php:273 single-cma.php:290 single-cma.php:309 single-cma.php:333
+#: single-cma.php:350 single-cma.php:369
 msgid "Average"
 msgstr "平均价格"
 
-#: single-cma.php:241 single-cma.php:252 single-cma.php:271 single-cma.php:295
-#: single-cma.php:306 single-cma.php:325
+#: single-cma.php:274 single-cma.php:291 single-cma.php:310 single-cma.php:334
+#: single-cma.php:351 single-cma.php:370
 msgid "High End"
 msgstr "高端价格"
 
-#: single-cma.php:243 single-cma.php:297
+#: single-cma.php:276 single-cma.php:336
 msgid "Market Price (PSF)"
 msgstr "市场平均尺价"
 
-#: single-cma.php:245 single-cma.php:299
+#: single-cma.php:281 single-cma.php:341
 msgid "Market Price (Total)"
 msgstr "市场价格"
 
-#: single-cma.php:247 single-cma.php:264 single-cma.php:301 single-cma.php:318
+#: single-cma.php:286 single-cma.php:303 single-cma.php:346 single-cma.php:363
 msgid "BCA Change (%)"
 msgstr "政府估价涨跌幅"
 
-#: single-cma.php:254 single-cma.php:308
+#: single-cma.php:293 single-cma.php:353
 msgid "Land Market Price (PSF)"
 msgstr "土地市场尺价"
 
-#: single-cma.php:259 single-cma.php:313
+#: single-cma.php:298 single-cma.php:358
 msgid "Improv. Market Price (PSF)"
 msgstr "物业市场尺价"
 
-#: single-cma.php:268 single-cma.php:322
+#: single-cma.php:307 single-cma.php:367
 msgid "Eval Type"
 msgstr "评估类型"
 
-#: single-cma.php:273 single-cma.php:327
+#: single-cma.php:312 single-cma.php:372
 msgid "Market Value Range 1"
 msgstr "市场房价评估1"
 
-#: single-cma.php:278 single-cma.php:332
+#: single-cma.php:317 single-cma.php:377
 msgid "Market Value Range 2"
 msgstr "市场房价评估2"
 
-#: single-cma.php:284 single-cma.php:338
+#: single-cma.php:323 single-cma.php:383
 msgid "Evaluation 1"
 msgstr "评估 1"
 
-#: single-cma.php:285 single-cma.php:339
+#: single-cma.php:324 single-cma.php:384
 msgid "Evaluation 2"
 msgstr "评估 2"
 
-#: single-cma.php:286 single-cma.php:340
+#: single-cma.php:325 single-cma.php:385
 msgid "Start Over"
 msgstr "重设"
 
-#: single-cma.php:289
+#: single-cma.php:328
 msgid "Sold Listings Price Analysis"
 msgstr "市场成交价分析"
 
-#: single-cma.php:440
+#: single-cma.php:485
 #, php-format
 msgid "%s Real Estate Monthly House HPI"
 msgstr "%s房地产市场基准房价表"
@@ -344,123 +372,126 @@ msgstr "%s清单"
 msgid "MORE %s WILL BE COMING SOON ..."
 msgstr "即将增加新的%s资料... ..."
 
-#: src/PIDEnv.php:87
+#: src-php/PIDEnv.php:87
 #, php-format
 msgid "%s Communities List"
 msgstr "%s居民社区简明介绍"
 
-#: src/PIDEnv.php:88 src/PIDHomesSEO.php:131
+#: src-php/PIDEnv.php:88 src-php/PIDHomesSEO.php:131
 #, php-format
 msgid "%s Real Estate Market Charts"
 msgstr "%s房地产市场价格走势图"
 
-#: src/PIDEnv.php:151
+#: src-php/PIDEnv.php:151
 #, php-format
 msgid "%s Real Estate Market Home Price Chart"
 msgstr "%s房地产市场房价走势图"
 
-#: src/PIDEnv.php:154
+#: src-php/PIDEnv.php:154
 #, php-format
 msgid "%s Concise School Report"
 msgstr "%s中小学简明介绍"
 
-#: src/PIDEnv.php:157
+#: src-php/PIDEnv.php:157
 #, php-format
 msgid "%s Real Estate Concise Community Report"
 msgstr "%s房地产居民社区简明报告"
 
-#: src/PIDEnv.php:160
+#: src-php/PIDEnv.php:160
 #, php-format
 msgid "%s Real Estate Market Analysis Report"
 msgstr "%s房地产市场分析报告"
 
-#: src/PIDEnv.php:163
+#: src-php/PIDEnv.php:163
 #, php-format
 msgid "%s Real Estate Market Summary Page"
 msgstr "%s房地产市场简明报告"
 
-#: src/PIDEnv.php:167
+#: src-php/PIDEnv.php:167
 msgid "Greater Vancouver Real Estate Market Summary Page"
 msgstr "大温地区房地产市场简明报告"
 
-#: src/PIDHomesSEO.php:72
+#: src-php/PIDHomesSEO.php:72
 msgid "Surrey REALTOR | Peter Qu | Buy & Sell"
 msgstr "素里房地产经纪人 | 屈颂辉 | 房屋买卖好帮手"
 
-#: src/PIDHomesSEO.php:75
+#: src-php/PIDHomesSEO.php:75
 msgid "Vancouver REALTOR | Peter Qu | Buy & Sell"
 msgstr "温哥华地产经纪 | 屈颂辉 ! 房屋买卖和咨询"
 
-#: src/PIDHomesSEO.php:85 src/PIDHomesSEO.php:91 src/PIDHomesSEO.php:97
-#: src/PIDHomesSEO.php:103 src/PIDHomesSEO.php:109 src/PIDHomesSEO.php:115
+#: src-php/PIDHomesSEO.php:85 src-php/PIDHomesSEO.php:91
+#: src-php/PIDHomesSEO.php:97 src-php/PIDHomesSEO.php:103
+#: src-php/PIDHomesSEO.php:109 src-php/PIDHomesSEO.php:115
 #, php-format
 msgid "%s REALTOR"
 msgstr "%s地产经纪"
 
 #. Author of the theme
-#: src/PIDHomesSEO.php:86 src/PIDHomesSEO.php:92 src/PIDHomesSEO.php:98
-#: src/PIDHomesSEO.php:104 src/PIDHomesSEO.php:110 src/PIDHomesSEO.php:116
-#: src/PIDHomesSEO.php:124
+#: src-php/PIDHomesSEO.php:86 src-php/PIDHomesSEO.php:92
+#: src-php/PIDHomesSEO.php:98 src-php/PIDHomesSEO.php:104
+#: src-php/PIDHomesSEO.php:110 src-php/PIDHomesSEO.php:116
+#: src-php/PIDHomesSEO.php:124
 msgid "Peter Qu"
 msgstr "屈颂辉"
 
-#: src/PIDHomesSEO.php:87
+#: src-php/PIDHomesSEO.php:87
 #, php-format
 msgid "%s Communities Expert"
 msgstr "%s居民社区专家"
 
-#: src/PIDHomesSEO.php:88 src/PIDHomesSEO.php:100 src/PIDHomesSEO.php:106
-#: src/PIDHomesSEO.php:112 src/PIDHomesSEO.php:118 src/PIDHomesSEO.php:128
-#: src/PIDHomesSEO.php:136 src/PIDHomesSEO.php:140 src/PIDHomesSEO.php:144
-#: src/PIDHomesSEO.php:148
+#: src-php/PIDHomesSEO.php:88 src-php/PIDHomesSEO.php:100
+#: src-php/PIDHomesSEO.php:106 src-php/PIDHomesSEO.php:112
+#: src-php/PIDHomesSEO.php:118 src-php/PIDHomesSEO.php:128
+#: src-php/PIDHomesSEO.php:136 src-php/PIDHomesSEO.php:140
+#: src-php/PIDHomesSEO.php:144 src-php/PIDHomesSEO.php:148
 msgid "Professionalism | Integrity | Diligence"
 msgstr "精专 | 精诚 | 精细"
 
-#: src/PIDHomesSEO.php:93
+#: src-php/PIDHomesSEO.php:93
 #, php-format
 msgid "%s Home Price Expert"
 msgstr "%s房价专家"
 
-#: src/PIDHomesSEO.php:99
+#: src-php/PIDHomesSEO.php:99
 #, php-format
 msgid "%s Market Analysis Expert"
 msgstr "%s房地产市场分析专家"
 
-#: src/PIDHomesSEO.php:105 src/PIDHomesSEO.php:111
+#: src-php/PIDHomesSEO.php:105 src-php/PIDHomesSEO.php:111
 #, php-format
 msgid "%s Listing Expert"
 msgstr "%s房源专家"
 
-#: src/PIDHomesSEO.php:117 src/PIDHomesSEO.php:147
+#: src-php/PIDHomesSEO.php:117 src-php/PIDHomesSEO.php:147
 #, php-format
 msgid "%s Real Estate Expert"
 msgstr "%s房地产专家"
 
-#: src/PIDHomesSEO.php:123
+#: src-php/PIDHomesSEO.php:123
 msgid "Vancouver REALTOR"
 msgstr "温哥华地产经纪"
 
-#: src/PIDHomesSEO.php:127
+#: src-php/PIDHomesSEO.php:127
 #, php-format
 msgid "%s Communities Summary Report"
 msgstr "%s居民社区简明介绍"
 
-#: src/PIDHomesSEO.php:135
+#: src-php/PIDHomesSEO.php:135
 #, php-format
 msgid "%s Market Analysis Report"
 msgstr "%s房价分析报告"
 
-#: src/PIDHomesSEO.php:139
+#: src-php/PIDHomesSEO.php:139
 #, php-format
 msgid "%s Active Listings"
 msgstr "%s最新房源"
 
-#: src/PIDHomesSEO.php:143
+#: src-php/PIDHomesSEO.php:143
 #, php-format
 msgid "%s Listing"
 msgstr "%s最新房源"
 
-#: src/PIDHomesSEO.php:171
+#: src-php/PIDHomesSEO.php:171
 msgid ""
 "Surrey REALTOR, Peter Qu, Home for sale in Surrey, South Surrey, White Rock, "
 "Fraser Heights, Fleetwood, Cloverdale, Single House, Townhouse, Apartment "
@@ -469,7 +500,7 @@ msgstr ""
 "素里地产经纪,屈颂辉,房屋买卖,素里,白石镇,南素里,台湾村,Fraser Heights,Fleetwood,Cloverdale,独立屋,别墅,"
 "城市屋,联排别墅,公寓,素里地产经纪,屈颂辉"
 
-#: src/PIDHomesSEO.php:173
+#: src-php/PIDHomesSEO.php:173
 msgid ""
 "Vancouver REALTOR, Peter Qu, Home for sale in Vancouver,Surrey,Burnaby,"
 "Richmond,Coquitlam,Port Moody,White Rock,Single House, Townhouse, Apartment "
@@ -478,7 +509,7 @@ msgstr ""
 "温哥华地产经纪,屈颂辉,房屋买卖,物业咨询,房价评估,温哥华,本那比,列治文,高贵林,满地宝,白石,素里,独立屋,别墅,联排别墅,城市屋,公寓,"
 "温哥华地产经纪,屈颂辉"
 
-#: src/PIDHomesSEO.php:182
+#: src-php/PIDHomesSEO.php:182
 msgid ""
 "Surrey Real Estate Neighborhoods And Communities Expert, Surrey REALTOR, "
 "Peter Qu, Surrey Home for sale, South Surrey, Cloverdale, White Rock, Fraser "
@@ -487,20 +518,20 @@ msgstr ""
 "素里房地产居民社区专家, 素里地产经纪, 屈颂辉, 素里房屋买卖, 南素里, Cloverdale, 白石镇, 台湾村, Fraser Heights, "
 "Fleetwood, 摩根岗, 兰里精品社区推介"
 
-#: src/PIDHomesSEO.php:183
+#: src-php/PIDHomesSEO.php:183
 msgid ""
 "Surrey Real Estate Professional and Real Estate Expert, single house, "
 "townhouse, apartment, condo, residential, commercial"
 msgstr "素里房地产专家, 精通独立屋, 城市屋, 别墅, 公寓, 居民地产, 商业地产各类物业, 确保客户投资升值."
 
-#: src/PIDHomesSEO.php:187
+#: src-php/PIDHomesSEO.php:187
 msgid ""
 "Surrey Real Estate Home Price Expert, Free Home Evaluation, Surrey REALTOR, "
 "Peter Qu, Surrey Home for sale"
 msgstr "素里房地产房价专家, 免费物业评估, 免费估价, 准确详实, 信心保障. 素里地产经纪屈颂辉, 买卖素里房屋."
 
-#: src/PIDHomesSEO.php:188 src/PIDHomesSEO.php:193 src/PIDHomesSEO.php:199
-#: src/PIDHomesSEO.php:204
+#: src-php/PIDHomesSEO.php:188 src-php/PIDHomesSEO.php:193
+#: src-php/PIDHomesSEO.php:199 src-php/PIDHomesSEO.php:204
 msgid ""
 "Surrey Real Estate Professional and Expert, South Surrey, White Rock, Fraser "
 "Heights, Fleetwood, Morgan Heights, Cloverdale, Guilford"
@@ -508,20 +539,20 @@ msgstr ""
 "素里房地产专家, 精通南素里, 白石镇, 台湾村, Fraser Heights, Fleetwood, 摩根岗, Cloverdale, "
 "Guildford各居民社区."
 
-#: src/PIDHomesSEO.php:192
+#: src-php/PIDHomesSEO.php:192
 msgid ""
 "Surrey Real Estate CMA Market Analysis Expert, Surrey REALTOR, Peter Qu, "
 "Surrey Home for sale"
 msgstr "素里房地产市场分析专家, 精通房价走势. 素里地产经纪, 买卖素里房屋."
 
-#: src/PIDHomesSEO.php:198
+#: src-php/PIDHomesSEO.php:198
 #, php-format
 msgid ""
 "%s Home For Sale, Listing Expert, Single House, Townhouse, Apartment, Condo, "
 "Surrey REALTOR, Peter Qu"
 msgstr "%s房屋买卖, 挂牌专家, 精通独立屋, 独栋别墅, 城市屋, 公寓等各种类别的物业. 素里地产经纪屈颂辉."
 
-#: src/PIDHomesSEO.php:203
+#: src-php/PIDHomesSEO.php:203
 msgid ""
 "Surrey REALTOR, Peter Qu, Buy and Sell in Surrey, Home for sale in Surrey, "
 "South Surrey, White Rock, Fraser Heights, Fleetwood, Cloverdale, Single "
@@ -530,24 +561,24 @@ msgstr ""
 "素里地产经纪屈颂辉, 买卖素里房屋. 素里房屋销售. 南素里, 白石镇, 台湾村, Fraser Heights, Fleetwood, "
 "Cloverdale, 独栋别墅, 独立屋, 城市屋, 联排别墅, 公寓. 素里地产经纪."
 
-#: src/PIDHomesSEO.php:208
+#: src-php/PIDHomesSEO.php:208
 msgid ""
 "Vancouver REALTOR, Peter Qu, Buy and Sell in Vancouver, Home for sale in "
 "Vancouver, Single House, Townhouse, Apartment Condo By Vancouver Realtor "
 "Peter Qu"
 msgstr "温哥华地产经纪,屈颂辉,房屋买卖,温哥华,独立屋,别墅,联排别墅,公寓,温哥华地产经纪,屈颂辉"
 
-#: src/PIDHomesSEO.php:209
+#: src-php/PIDHomesSEO.php:209
 msgid ""
 "Vancouver Real Estate Professional and Expert, Vancouver,Burnaby,Richmond,"
 "Surrey,White Rock,Coquitlam"
 msgstr "温哥华地产专家,温哥华,本那比,列治文,素里,白石,高贵林"
 
-#: src/PIDHomesSEO.php:219
+#: src-php/PIDHomesSEO.php:219
 msgid "Surrey REALTOR Peter Qu"
 msgstr "素里房地产经纪人屈颂辉"
 
-#: src/PIDHomesSEO.php:221
+#: src-php/PIDHomesSEO.php:221
 msgid "Vancouver REALTOR Peter Qu"
 msgstr "温哥华地产经纪,屈颂辉"
 

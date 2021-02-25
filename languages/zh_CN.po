@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: RealHomesChildTheme 2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-10-17 18:43+0000\n"
-"PO-Revision-Date: 2020-10-17 18:45+0000\n"
+"PO-Revision-Date: 2021-02-24 21:31+0000\n"
 "Last-Translator: Peter Qu\n"
 "Language-Team: 简体中文\n"
 "Language: zh_CN\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco https://localise.biz/\n"
-"X-Loco-Version: 2.4.3; wp-5.5.1"
+"X-Loco-Version: 2.4.3; wp-5.5.3"
 
 #: archive-community.php:62 single-cma.php:481 single-community.php:78
 #, php-format
@@ -69,7 +69,7 @@ msgstr "挂牌价"
 
 #: single-cma.php:230
 msgid "Sold Price"
-msgstr "成交价"
+msgstr "Offer Price"
 
 #: single-cma.php:244
 msgid "BCA"

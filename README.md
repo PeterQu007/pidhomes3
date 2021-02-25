@@ -106,24 +106,34 @@
 4. CHECK WPDATATABLE 29 FOR GREATER VANCOUVER ALL CITIES
 
 ```sql
+  wdt 29
   view `wp_pid_market_latest` // get the latest monthly hpi stats
   view `wp_pid_hpi_grouped` // pivot the stats grouped by City
 ```
 
 5. CHECK WPDATATABLE 45 FOR GVA SUB AREAS
 
+```sql
+  wdt 45 `Van Communities Current Monthly HPI Price List` //
+  view `pqu007_wrdp1.wp_pid_view_gva_nbh_cur_month_hpi_table`
+```
+
 6. CHECK GVA NBHS SINGLE HOUSE MONTHLY HPI TABLE - WPDATATABLE 38
 
 ```sql
   post 大温哥华地区各居民社区独立屋基准房价月度涨跌幅排名表 WDT 38
+  talbe_id 38 `GVA NBHs Single House HPI Change Rank Table`
   view `wp_pid_view_gva_nbh_hpi_report_data` // new view created on 2021-02-07
   view `wp_pid_view_gva_nbh_hpi_report_wrapper` // new view created on 2021-02-07
+  view Select from subquery of the wrapper, added wp_pid_counter() as `rank` for `FINAL TABLE PRESENTATION`
 ```
 
 7. CHECK GVA CITY SINGLE HOUSE MONTHLY HPI TABLE - WDT 40
 
 ```sql
-  post 大温哥华地区各城市,区域独立屋基准房价月度涨跌幅排名表 WDT 40
+  post 大温哥华地区各城镇独立屋基准房价月度涨跌幅排名表 WDT 40
+  table_id 40 `GVA Cities Single House Monthly HPI Rank Table`
   view `wp_pid_view_gva_nbh_hpi_report_data` // 2021-02-07
   view `wp_pid_view_gva_cities_hpi_report_wrapper` // 2021-02-07
+  presentation Select from subquery of the wrapper, added wp_pid_counter() as `rank` for `FINAL TABLE PRESENTATION`
 ```
