@@ -15,14 +15,6 @@ $current_date_pointer = $month_ini->format('Y-m-d'); // 2021-05-01
 $current_year_pointer = date("Y", strtotime($current_date_pointer));
 $current_month_pointer = date("m", strtotime($current_date_pointer));
 
-$previous_date_pointer = date("Y-m-d", strtotime("-2 Months"));
-$previous_year_pointer = date("Y", strtotime($previous_date_pointer));
-$previous_month_pointer = date("m", strtotime($previous_date_pointer));
-
-$start_date_pointer = date("Y-m-d", strtotime("-13 Months"));
-$start_year_pointer = date("Y", strtotime($start_date_pointer));
-$start_month_pointer = date("m", strtotime($start_date_pointer));
-
 if (isset($_POST['datePointer1'])) {
   $datePointer1 = $_POST['datePointer1']; // eg. 2021-05-01
   $date_pointer_1 = new DateTime($datePointer1);
@@ -30,23 +22,6 @@ if (isset($_POST['datePointer1'])) {
   $current_year_pointer = date("Y", strtotime($current_date_pointer));
   $current_month_pointer = date("m", strtotime($current_date_pointer));
 }
-
-if (isset($_POST['datePointer2'])) {
-  $datePointer2 = $_POST['datePointer2']; // eg. 2021
-  $date_pointer_2 = new DateTime($datePointer2);
-  $previous_date_pointer = $date_pointer_2->format('Y-m-d');
-  $previous_year_pointer = date("Y", strtotime($previous_date_pointer));
-  $previous_month_pointer = date("m", strtotime($previous_date_pointer));
-}
-
-if (isset($_POST['datePointer3'])) {
-  $datePointer3 = $_POST['datePointer3']; // eg. 05
-  $date_pointer_3 = new DateTime($datePointer3);
-  $start_date_pointer = $date_pointer_3->format('Y-m-d');
-  $start_year_pointer = date("Y", strtotime($start_date_pointer));
-  $start_month_pointer = date("m", strtotime($start_date_pointer));
-}
-
 
 ?> 
 <?php
@@ -56,11 +31,41 @@ $mysqli = new mysqli(PID_DB_HOST, PID_DB_USER, PID_DB_PASSWORD, PID_DB_NAME);
 // UPDATE SQL for pointer id = 1, the current_pointer
 // Do updates in one query
 // use INSERT ... ON DUPLICATE KEY UPDATE
-$strSql = "INSERT INTO wp_pid_stats_date_pointer (pointer_id, date_pointer, month_pointer, year_pointer) 
-                  VALUES (1,?,?,?), (2,?,?,?), (3,?,?,?) AS INSERT_DATE_POINTERS
-                   ON DUPLICATE KEY UPDATE date_pointer = INSERT_DATE_POINTERS.date_pointer, 
-                   month_pointer = INSERT_DATE_POINTERS.month_pointer,
-                   year_pointer = INSERT_DATE_POINTERS.year_pointer";
+$strSql = "INSERT INTO wp_pid_market_pivot (`date`, neighborhood_id, data_type, townhouse, `all`, apartment, detached) 
+SELECT * FROM 
+(SELECT 
+	`p`.`Date` AS `date`, `p`.`Neighborhood_ID` AS `neighborhood_id`, \"HPI\" AS `data_type`,
+	MAX((CASE
+		WHEN (p.Property_Type = 'Townhouse') THEN `p`.`HPI`
+		ELSE NULL
+	END)) AS `Townhouse`,
+	MAX((CASE
+		WHEN (`p`.`Property_Type` = 'All') THEN `p`.`HPI`
+		ELSE NULL
+	END)) AS `All`,
+	MAX((CASE
+		WHEN (`p`.`Property_Type` = 'Apartment') THEN `p`.`HPI`
+		ELSE NULL
+	END)) AS `Apartment`,
+	MAX((CASE
+		WHEN (`p`.`Property_Type` = 'Detached') THEN `p`.`HPI`
+		ELSE NULL
+	END)) AS `Detached`
+FROM
+	`wp_pid_market` `p`
+WHERE
+	`date` = ? 
+GROUP BY `p`.`Neighborhood_ID`)
+AS insert_pivot_data
+ON DUPLICATE KEY UPDATE `date` = insert_pivot_data.`date`,
+neighborhood_id = insert_pivot_data.neighborhood_id,
+data_type = insert_pivot_data.data_type,
+townhouse = insert_pivot_data.townhouse,
+`all` = insert_pivot_data.`all`,
+apartment = insert_pivot_data.apartment,
+detached = insert_pivot_data.detached
+;";
+
 // prepare the statement                   
 $stmt = $mysqli->prepare($strSql);
 if ($stmt === false) {
@@ -69,7 +74,7 @@ if ($stmt === false) {
   exit();
 }
 // binding the parameters
-$stmt->bind_param('sssssssss', $current_date_pointer, $current_month_pointer, $current_year_pointer, $previous_date_pointer, $previous_month_pointer, $previous_year_pointer, $start_date_pointer, $start_month_pointer, $start_year_pointer);
+$stmt->bind_param('s', $current_date_pointer,);
 // execute the statement
 $status = $stmt->execute();
 
