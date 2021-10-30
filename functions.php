@@ -174,6 +174,16 @@ if (is_admin()) {
 		}
 		add_filter('acf/fields/google_map/api', 'pidHomesMapKey');
 	}
+
+	if (!function_exists('my_admin_style')) {
+		//Change the property city tax UI box height
+		//https://www.intelliwolf.com/add-custom-css-wordpress-admin-area/
+		function my_admin_style()
+		{
+			wp_enqueue_style('admin-style', get_stylesheet_directory_uri() . '/css/admin-style.css');
+		}
+		add_action('admin_enqueue_scripts', 'my_admin_style');
+	}
 } else {
 
 	if (!function_exists('inspiry_enqueue_child_styles')) {

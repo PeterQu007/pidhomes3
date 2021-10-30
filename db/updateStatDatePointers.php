@@ -56,11 +56,22 @@ $mysqli = new mysqli(PID_DB_HOST, PID_DB_USER, PID_DB_PASSWORD, PID_DB_NAME);
 // UPDATE SQL for pointer id = 1, the current_pointer
 // Do updates in one query
 // use INSERT ... ON DUPLICATE KEY UPDATE
-$strSql = "INSERT INTO wp_pid_stats_date_pointer (pointer_id, date_pointer, month_pointer, year_pointer) 
-                  VALUES (1,?,?,?), (2,?,?,?), (3,?,?,?) AS INSERT_DATE_POINTERS
-                   ON DUPLICATE KEY UPDATE date_pointer = INSERT_DATE_POINTERS.date_pointer, 
-                   month_pointer = INSERT_DATE_POINTERS.month_pointer,
-                   year_pointer = INSERT_DATE_POINTERS.year_pointer";
+if ($mysqli->server_version > 80000) {
+  // MYSQL 8.0
+  $strSql = "INSERT INTO wp_pid_stats_date_pointer (pointer_id, date_pointer, month_pointer, year_pointer) 
+                    VALUES (1,?,?,?), (2,?,?,?), (3,?,?,?) AS INSERT_DATE_POINTERS
+                     ON DUPLICATE KEY UPDATE date_pointer = INSERT_DATE_POINTERS.date_pointer, 
+                     month_pointer = INSERT_DATE_POINTERS.month_pointer,
+                     year_pointer = INSERT_DATE_POINTERS.year_pointer";
+} else {
+  // MYSQL 5.6 / 5.7
+  $strSql = "INSERT INTO wp_pid_stats_date_pointer (pointer_id, date_pointer, month_pointer, year_pointer) 
+                  VALUES (1,?,?,?), (2,?,?,?), (3,?,?,?) 
+                   ON DUPLICATE KEY UPDATE date_pointer = VALUES(date_pointer), 
+                   month_pointer = VALUES(month_pointer),
+                   year_pointer = VALUES(year_pointer)";
+}
+
 // prepare the statement                   
 $stmt = $mysqli->prepare($strSql);
 if ($stmt === false) {
@@ -77,7 +88,7 @@ if ($status === false) {
   trigger_error($stmt->error, E_USER_ERROR);
   exit();
 } else {
-  echo json_encode("Rows Affected: $stmt->affected_rows");
+  echo json_encode("Rows Affected: $stmt->affected_rows | MySQL Version: $mysqli->server_version | SQL Query: $strSql");
 }
 
 $stmt->close();

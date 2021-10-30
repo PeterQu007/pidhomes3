@@ -22,6 +22,7 @@ $start_first_dater =
 	strtotime('first day of this month', strtotime('-13 Months'));
 $start_date_pointer = date("Y-m-d", $start_first_dater);
 
+
 if (isset($_POST['datePointer1'])) {
 	$datePointer1 = $_POST['datePointer1']; // eg. 2021-05-01
 	$date_pointer_1 = new DateTime($datePointer1);
@@ -80,13 +81,13 @@ WHERE
 	`date` = ? OR `date` = ? OR `date` = ?
 GROUP BY `p`.`Neighborhood_ID`, `date`)
 AS insert_pivot_data
-ON DUPLICATE KEY UPDATE `date` = insert_pivot_data.`date`,
-neighborhood_id = insert_pivot_data.neighborhood_id,
-data_type = insert_pivot_data.data_type,
-townhouse = insert_pivot_data.townhouse,
-`all` = insert_pivot_data.`all`,
-apartment = insert_pivot_data.apartment,
-detached = insert_pivot_data.detached
+ON DUPLICATE KEY UPDATE `date` = VALUES(`date`),
+neighborhood_id = VALUES(neighborhood_id),
+data_type = VALUES(data_type),
+townhouse = VALUES(townhouse),
+`all` = VALUES(`all`),
+apartment = VALUES(apartment),
+detached = VALUES(detached)
 ;";
 
 // prepare the statement                   
@@ -105,7 +106,7 @@ if ($status === false) {
 	trigger_error($stmt->error, E_USER_ERROR);
 	exit();
 } else {
-	echo json_encode("$current_date_pointer | $previous_date_pointer | $start_date_pointer - Rows Affected: $stmt->affected_rows");
+	echo json_encode("$current_date_pointer | $previous_date_pointer | $start_date_pointer - Rows Affected: $stmt->affected_rows | MySQL Version: $mysqli->server_version | Query: $strSql");
 }
 
 $stmt->close();
