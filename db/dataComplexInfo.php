@@ -3,84 +3,83 @@
 // https://pidrealty4.local/wp-content/themes/realhomes-child-3/db/dataComplexInfo.php
 date_default_timezone_set("America/Vancouver");
 $today = date("Y-m-d");
+$complexInfos = array(
+  [
+    "DwellingType" => "Apartment/Condo",
+    "PropertyType" => "Residential Attached",
+    "Province" => "BC",
+    "YearBuilt" => "1982",
+    "Address" => "4373 HALIFAX ST",
+    "BylawRentalRestriction" => " ",
+    "City" => "Burnaby",
+    "CityDistrict" => "Burnaby North",
+    "ComplexName" => "Brent Garden", //
+    "Neighborhood" => "Brentwood Park",
+    "NeighborhoodCode" => "",
+    "Postcode" => "V5C 5Z2",
+    "Storeys" => '["24"]',
+    "StrataPlan" => "NWS2036",
+    "StrataPlanID" => "NWS2036-4373-HALIFAX-ST",
+    "TitleToLand" => "Freehold Strata",
+    "Units" => '["334"]',
+    "Amenities" => '["Gym","Club House","Storage", "Sauna;Indoor"]',
+    "BylawPetRestriction" => "",
+    "BylawAgeRestriction" => "",
+    "BylawRestriction" => "",
+    "Construction" => "",
+    "FloodPlain" => "",
+    "MaintenanceFeeInclude" => "",
+    "ManagementCoName" => "",
+    "ManagementCoPhone" => "",
+    "Parking" => "",
+    "RainScreen" => "",
+    "Region" => "",
+    "SiteInfluences" => "",
+    "StrataFeePSF" => "",
+    "Zoning" => '["CD","CDMFS"]',
+    "Audited" => false,
+    "AddedDate" => date("Y-m-d", strtotime("+30 days"))
+  ],
+  [
+    "DwellingType" => "Apartment/Condo",
+    "PropertyType" => "Residential Attached",
+    "Province" => "BC",
+    "YearBuilt" => "1983",
+    "Address" => "2041 BELLWOOD AV",
+    "BylawRentalRestriction" => " ",
+    "City" => "Burnaby",
+    "CityDistrict" => "Burnaby North",
+    "ComplexName" => "Anola Place", //
+    "Neighborhood" => "Brentwood Park",
+    "NeighborhoodCode" => "",
+    "Postcode" => "V5B 4V5",
+    "Storeys" => '[" 1"]',
+    "StrataPlan" => "NWS2020",
+    "StrataPlanID" => "NWS2020-2041-BELLWOOD-AV",
+    "TitleToLand" => "Freehold Strata",
+    "Units" => '[" 50"]',
+    "Amenities" => '["Pool;Indoor","Tennis Court","Gym","Elevator"]',
+    "BylawPetRestriction" => "",
+    "BylawAgeRestriction" => "",
+    "BylawRestriction" => "",
+    "Construction" => "",
+    "FloodPlain" => "",
+    "MaintenanceFeeInclude" => "",
+    "ManagementCoName" => '["Quaye", "Quaye Management Corp", "Quaye MNGT Group", "Quaye Property MNGT LMT"]',
+    "ManagementCoPhone" => "",
+    "Parking" => "",
+    "RainScreen" => "",
+    "Region" => "",
+    "SiteInfluences" => "",
+    "StrataFeePSF" => "",
+    "Zoning" => '["Highrise","CD","MFS"]',
+    "Audited" => false,
+    "AddedDate" => date("Y-m-d", strtotime("+30 days"))
+  ]
+);
 
 if (isset($_POST["complexInfos"])) {
   $complexInfos = $_POST["complexInfos"];
-} else {
-  $complexInfos = array(
-    [
-      "DwellingType" => "Apartment/Condo",
-      "PropertyType" => "Residential Attached",
-      "Province" => "BC",
-      "YearBuilt" => "1982",
-      "Address" => "4373 HALIFAX ST",
-      "BylawRentalRestriction" => " ",
-      "City" => "Burnaby",
-      "CityDistrict" => "Burnaby North",
-      "ComplexName" => "Brent Garden", //
-      "Neighborhood" => "Brentwood Park",
-      "NeighborhoodCode" => "",
-      "Postcode" => "V5C 5Z2",
-      "Storeys" => '["24"]',
-      "StrataPlan" => "NWS2036",
-      "StrataPlanID" => "NWS2036-4373-HALIFAX-ST",
-      "TitleToLand" => "Freehold Strata",
-      "Units" => '["334"]',
-      "Amenities" => '["Gym","Club House","Storage", "Sauna;Indoor"]',
-      "BylawPetRestriction" => "",
-      "BylawAgeRestriction" => "",
-      "BylawRestriction" => "",
-      "Construction" => "",
-      "FloodPlain" => "",
-      "MaintenanceFeeInclude" => "",
-      "ManagementCoName" => "",
-      "ManagementCoPhone" => "",
-      "Parking" => "",
-      "RainScreen" => "",
-      "Region" => "",
-      "SiteInfluences" => "",
-      "StrataFeePSF" => "",
-      "Zoning" => '["CD","CDMFS"]',
-      "Audited" => false,
-      "AddedDate" => date("Y-m-d", strtotime("+30 days"))
-    ],
-    [
-      "DwellingType" => "Apartment/Condo",
-      "PropertyType" => "Residential Attached",
-      "Province" => "BC",
-      "YearBuilt" => "1983",
-      "Address" => "2041 BELLWOOD AV",
-      "BylawRentalRestriction" => " ",
-      "City" => "Burnaby",
-      "CityDistrict" => "Burnaby North",
-      "ComplexName" => "Anola Place", //
-      "Neighborhood" => "Brentwood Park",
-      "NeighborhoodCode" => "",
-      "Postcode" => "V5B 4V5",
-      "Storeys" => '[" 1"]',
-      "StrataPlan" => "NWS2020",
-      "StrataPlanID" => "NWS2020-2041-BELLWOOD-AV",
-      "TitleToLand" => "Freehold Strata",
-      "Units" => '[" 50"]',
-      "Amenities" => '["Pool;Indoor","Tennis Court","Gym","Elevator"]',
-      "BylawPetRestriction" => "",
-      "BylawAgeRestriction" => "",
-      "BylawRestriction" => "",
-      "Construction" => "",
-      "FloodPlain" => "",
-      "MaintenanceFeeInclude" => "",
-      "ManagementCoName" => '["Quaye", "Quaye Management Corp", "Quaye MNGT Group", "Quaye Property MNGT LMT"]',
-      "ManagementCoPhone" => "",
-      "Parking" => "",
-      "RainScreen" => "",
-      "Region" => "",
-      "SiteInfluences" => "",
-      "StrataFeePSF" => "",
-      "Zoning" => '["Highrise","CD","MFS"]',
-      "Audited" => false,
-      "AddedDate" => date("Y-m-d", strtotime("+30 days"))
-    ]
-  );
 }
 
 include_once('pdoConn.php');
@@ -276,7 +275,7 @@ try {
       // $pdo->commit();
     } elseif ($existed_Complex["Added_Date"] != $complexInfo->AddedDate or $existed_Complex["Complex_Name"] == "**") {
       $complex_update = array(
-        "Complex_Name" => $complexInfo->ComplexName,
+        "Complex_Name" => $complexInfo->ComplexName, /* ComplexName Could be Changed or be Updated*/
         "Amenities" => mergeList($existed_Complex["Amenities"], $complexInfo->Amenities),
         "Bylaw_Rental_Restriction" => mergeList($existed_Complex["Bylaw_Rental_Restriction"], $complexInfo->BylawRentalRestriction),
         "Storeys" => mergeList($existed_Complex["Storeys"], $complexInfo->Storeys),
